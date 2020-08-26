@@ -1,17 +1,20 @@
+const bubble = (size, singleRun, A) => {
 
 // Buuble Sort- Brute-Force Approach
 const generator = require('random-array-generator');
 const Stopwatch = require('statman-stopwatch');
-if (!isNaN(process.argv[2])) {
-    return console.error('Please enter a number as a third argumrnt.');
+let array = [];
+let expectedOutput  = [];
+
+if (singleRun) {
+    const min = 0;
+    const max = size*10;
+    array = generator.randomArray({min, max, elements: size});
+    expectedOutput  = [...array];
+    expectedOutput = expectedOutput.sort((a, b) => a - b);
+    require('../../overridePrototypes'); 
 }
-const size = process.argv[2];
-const min = 0;
-const max = process.argv[2]*10;
-const array = generator.randomArray({min, max, elements: size});
-let expectedOutput  = [...array];
-expectedOutput = expectedOutput.sort((a, b) => a - b);
-require('../overridePrototypes');
+else array = [...A];
 
 const stopwatch = new Stopwatch();
 
@@ -29,11 +32,26 @@ for (let i=0; i < size; i++) {
 stopwatch.stop();
 
 // Time taken
-console.log('TIme consumed: ', stopwatch.read());
+console.log('Array size: ', size, 'Bubble Sort: Time consumed: ', stopwatch.read());
 // Compare results
+if (singleRun) {
 if (array.equals(expectedOutput)) console.log('Bubble-Sort: Test case passed.');
 else console.log('Bubble Sort: Test case failed.');
+}
+
+return stopwatch.read();
 
 // Worst-time complexity O(n^2)
 // Best-time complexity O(n^2)
 // Average-time complexity O(n^2)
+}
+
+if (
+    process.argv[2]
+    && process.argv[3]
+    && JSON.parse(process.argv[3]) === 1
+    && Number.isInteger(JSON.parse(process.argv[2]))) {
+    bubble(process.argv[2], true);
+}
+
+module.exports = { bubble };
