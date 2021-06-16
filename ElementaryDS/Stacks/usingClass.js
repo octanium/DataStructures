@@ -1,35 +1,45 @@
 class Stack {
-    constructor() {
-        this.data = [];
+    constructor(size) {
+        this.A = [];
+        this.size = size;
         this.top = -1;
-        this.maxSize=5;
-        this.push = (element) => {
-                    if (this.data.length === this.maxSize) return console.log('STACK OVERFLOW');
-                 this.data[++this.top] = element;
-                }
     }
-    // push = (element) => {
-    //         if (this.data.length === this.maxSize) return console.log('STACK OVERFLOW');
-    //      this.data[++this.top] = element;
-    //     }
-    // ARrow function above throws Error, since it isn't valid syntax. That's a field declaration, which isn't supported by JS for class yet
-    // Use transform-class-properties plugin in .babelrc
-    pop (){
-        if (this.data.length === this.maxSize) return console.log('STACK OVERFLOW');
-        --this.top;
+    push (item) {
+        if (!item) return console.log('Item is missing');
+        if (this.top === this.size-1) return console.log(`Stack Overflow for item ${item}`);
+        return this.A[++this.top] = item;
     }
-    traverse (){
-        const newArr = [];
-        for (let i=0;i <=this.top; i++) newArr[i] = this.data[i];
-        return newArr;
+    pop(){
+        if (this.top === -1) return console.log('Stack Underflow');
+        return this.top--;
+    }
+    display () {
+        let start = this.top;
+        if (start === -1) return console.log('Stack Empty');
+        console.log('/-----------------------/');
+        while(start >= 0) { console.log(this.A[start--]); } 
     }
 }
 
-const st = new Stack();
-st.push(22);
-st.push(323);
-st.pop();
-st.push(212);
-st.push(33);
-st.pop();
-console.log(st.traverse());
+const ob = new Stack(6);
+ob.push(33);
+ob.push(12);
+ob.push(54);
+ob.push(121);
+ob.push(98);
+ob.push(76);
+ob.push(45);
+ob.display();
+ob.pop();
+ob.pop();
+ob.display();
+ob.pop();
+ob.pop();
+ob.pop();
+ob.display();
+ob.pop();
+ob.pop();
+
+
+
+
