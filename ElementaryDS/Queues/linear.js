@@ -1,48 +1,57 @@
-const readLine = require('readline');
-const rl = readLine.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+
 
 class Queue {
     constructor() {
-        this.data = [];
-        this.size = 5;
-        this.rear = -1;
+        this.queue = [];
+        this.max = 5;
         this.front = -1;
-        this.Enqueue = () => {
-            if (this.rear === this.size-1) {
-                console.log('QUEUE IS FULL');
-                return this.Traverse();
-            }
-            rl.question('Enter Element:', (element) => {
-                if (this.front === -1) ++this.front;
-                this.data[++this.rear] = element
-                return this.Traverse();
-            });
+        this.rear = -1;
+    }
+
+    insert(item) {
+        if (this.front === -1 && this.rear === -1) {
+            this.front++;
+            this.rear++;
+            this.queue[this.front] = item
         }
-        this.Dequeue = () => {
-            if (this.front === this.rear+1) console.log('QUEUE IS EMPTY');
-            else ++this.front;
-            return this.Traverse();
+        else {
+            if (this.rear === this.max-1) return console.log('Queue Full');
+            this.rear++;
+            this.queue[this.rear] = item;
         }
-        this.Traverse = () => {
-            const newArr = [];
-            console.log(this.front, this.rear, this.size);
-            for (let i=this.front; i<=this.rear; i++) newArr[i] = this.data[i];
-            console.log(newArr);
-            return this.menu();
-        }
-        this.menu = () => {
-            rl.question('Enter 1: ENQUEUE, 2: DEQUEUE, 3; EXIT', (option) => {
-                if (option == 1) return this.Enqueue();
-                else if (option == 2) return this.Dequeue();
-                else if (option == 3) return process.exit();
-                else { console.log('Wrong Input'); return this.menu(); }
-            });
-        }
+        // console.log(item);
+
+    }
+
+    remove() {
+        if (this.front === this.max || this.front == -1) return console.log('Queue empty');
+        this.front++;
+    }
+
+    display() {
+        for (let i=this.front; i<=this.rear; i++) console.log(this.queue[i]);
     }
 }
 
-const Q = new Queue();
-Q.menu();
+const q = new Queue();
+
+q.remove();
+q.insert(10);
+q.insert(20);
+q.insert(30);
+q.insert(40);
+q.insert(50);
+q.insert(60);
+q.display();
+console.log('-----------');
+q.remove();
+q.remove();
+q.display();
+console.log('-----------');
+q.remove();
+q.remove();
+q.remove();
+q.remove();
+q.display();
+console.log('-----------');
+q.insert('77');

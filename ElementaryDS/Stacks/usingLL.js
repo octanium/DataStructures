@@ -21,6 +21,7 @@ class Stack {
         } else {
             this.start = node;
         }
+        this.size++;
     };
     pop() {
         this.start = this.start.next;
@@ -42,5 +43,4 @@ list.push(78);
 list.push(65);
 list.pop();
 list.pop();
-
 list.display();

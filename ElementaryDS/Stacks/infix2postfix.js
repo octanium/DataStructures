@@ -47,3 +47,6 @@ const postfix = (A) => {
 
 postfix(infix);
 console.log('Postfix: ', s.join(''));
+
+
+//The Postfix notation is used to represent algebraic expressions. The expressions written in postfix form are evaluated faster compared to infix notation as parenthesis are not required in postfix
