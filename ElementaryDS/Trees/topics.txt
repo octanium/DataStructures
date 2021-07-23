@@ -1,0 +1,22 @@
+create a BT
+Traverse(pre, in, post, level order traversal)
+1. Using recursion
+2. Using stack
+3. Morris Traversal(Threaded BT): Types: (Right threaded(inorder successor), Left threaded(inorder predecessor), fully threaded)
+   (TBT are used when there are more of traversal operations and less insertion/deletion, becuase insertion/deletion is complex, we can also use them if stack/queue space is limited and our tree can be larger)
+   3.1 Create a Threaded BT
+   3.2 Traverse in O(1) space
+Insert in a BT.
+Delete in a BT.
+CBT
+1. Check if a BT is CBT
+2. Check if a BT is strict BT
+BST
+1. Check if a BT is BST
+2. Create a BST
+3. Convert a BT to BST
+4. Insert
+5. Delete
+AVL
+RB
+
