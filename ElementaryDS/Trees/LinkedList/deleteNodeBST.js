@@ -16,8 +16,8 @@ const deleteItem = (node, item) => {
             node.left = deleteItem(node.left, leftmax);
             return node;
         }
-        else if (node.left !== null) return node.left;
-        else if (node.right !== null) return node.right;
+        else if (node.left !== null) return node.right;
+        else if (node.right !== null) return node.left;
         else return null;
     }
     return node;

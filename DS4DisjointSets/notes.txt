@@ -1,0 +1,11 @@
+3 operations
+Make-Set- create sets of each vertex, initially n vertex = n sets
+Union- merge two sets into one
+Find-set: Find set of a particular vertex
+
+Can only be applied to undirected graphs
+
+applications
+1. Kruskal Algo
+2. Detect cycle in undirected graphs
+
