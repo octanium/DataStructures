@@ -9,3 +9,5 @@ applications
 1. Kruskal Algo
 2. Detect cycle in undirected graphs
 
+Optimisation using Ranks and Path Optimisation
+
