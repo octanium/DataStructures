@@ -9,5 +9,8 @@ applications
 1. Kruskal Algo
 2. Detect cycle in undirected graphs
 
-Optimisation using Ranks and Path Optimisation
-
+Optimisation  techniques
+1. Path compression( performed in find opn )
+2. Union by rank( performed in union opn )
+Complexity after Optimisation = O(alpha(n))
+alapha(n) <= 4, called as inverse Ackkerman function
