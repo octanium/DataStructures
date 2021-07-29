@@ -33,7 +33,7 @@ const union = (x, y) => {
     const parent1 = find_set(vertex1);
     const parent2 = find_set(vertex2);
 
-    if (parent1.item === parent2.item) return;
+    if (parent1.item === parent2.item) return; // they are in the same set
 
     
     if (parent1.rank >= parent2.rank) {// out of x and y whichever has the highest rank becomes the parent
