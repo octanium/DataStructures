@@ -11,6 +11,8 @@ applications
 
 Optimisation  techniques
 1. Path compression( performed in find opn )
-2. Union by rank( performed in union opn )
+2. Union by rank( performed in union opn ). Rank is the height of the tree. Our aim is to have minimum heigtht of the combined tree.
+   Height of tree after union of tree A and tree B = max(height-A, height-B)
+   hence if tree-A has height 3(or rank 2) and tree-B has height 2(or rank 1) then make tree A as a parent of tree B
 Complexity after Optimisation = O(alpha(n))
 alapha(n) <= 4, called as inverse Ackkerman function

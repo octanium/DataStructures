@@ -42,9 +42,6 @@ const union = (x, y) => {
     } else {
         parent1.parent = parent2;
     }
-    // console.log('parent1', parent1);
-    // console.log('parent2', parent2);
-    // console.log('----------------------');
 }
 
 make_set(vertices);

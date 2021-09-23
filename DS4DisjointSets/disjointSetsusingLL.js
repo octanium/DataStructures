@@ -29,7 +29,7 @@ const union = (x, y) => {
     const root1 = find_set(vertex1);
     const root2 = find_set(vertex2);
 
-    if (root1.item === root2.item) return;
+    if (root1.item === root2.item) { console.log('Cycle.. ', vertex1, vertex2); return };
     root1.parent = root2;
 }
 
